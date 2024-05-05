@@ -1,6 +1,7 @@
 import { log } from "console";
 import express from "express";
 import attendeesRoute from "./routes/AttendeeRoutes.js";
+import authRoutes from "./routes/AuthRoutes.js"
 import dotenv from "dotenv";
 import cors from "cors";
 import dbConnect from "./utils/dbConnect.js";
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api", attendeesRoute);
+app.use("/api/auth", authRoutes)
 
 app.listen(PORT, () => {
   log(`Server running on port ${PORT}`);
